@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: transaction-service
+  cloud:
+    config:
+#      uri: http://localhost:8081
+#      uri: http://192.168.0.106:8081
+      uri: http://az-config-server.azurewebsites.net/
