@@ -13,9 +13,9 @@
   </parent>
   
   <groupId>com.everis</groupId>
-  <artifactId>transaction-service</artifactId>
+  <artifactId>micro-transaction</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>transaction-service</name>
+  <name>micro-transaction</name>
   <description>Demo project for Spring Boot</description>
   
   <properties>

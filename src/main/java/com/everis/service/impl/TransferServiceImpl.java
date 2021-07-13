@@ -82,16 +82,16 @@ public class TransferServiceImpl extends CrudServiceImpl<Transfer, String>
           return receiveAccount
               .flatMap(receive -> {                
                         
-                withdrawal.setAccount(receive);
-                withdrawal.getAccount().setCurrentBalance(receive.getCurrentBalance() 
+                withdrawal.setAccount(send);
+                withdrawal.getAccount().setCurrentBalance(send.getCurrentBalance() 
                     - transfer.getAmount());
-                withdrawal.setPurchase(receive.getPurchase());
+                withdrawal.setPurchase(send.getPurchase());
                 withdrawal.setAmount(transfer.getAmount());
                 
-                deposit.setAccount(send);
-                deposit.getAccount().setCurrentBalance(send.getCurrentBalance() 
+                deposit.setAccount(receive);
+                deposit.getAccount().setCurrentBalance(receive.getCurrentBalance() 
                     + transfer.getAmount());
-                deposit.setPurchase(send.getPurchase());
+                deposit.setPurchase(receive.getPurchase());
                 deposit.setAmount(transfer.getAmount());
                 
                 if (withdrawal.getAccount().getCurrentBalance() < 0) {
