@@ -141,6 +141,27 @@ public class TransactionConsumer {
           
           d.getAccount().setCurrentBalance(d.getAccount().getCurrentBalance() - commissionFin);
           
+//          Transaction transaction = Transaction
+//              .builder()
+//              .account(d.getAccount())
+//              .purchase(d.getPurchase())
+//              .description(d.getDescription())
+//              .transactionType("DEPOSITO")
+//              .transactionAmount(d.getAmount())
+//              .commission(commissionFin)
+//              .transactionDate(LocalDateTime.now())
+//              .build();
+//          
+//          transaction.setAccount(d.getAccount());
+//          transaction.setPurchase(d.getPurchase());
+//          transaction.setDescription(d.getDescription());
+//          transaction.setTransactionType("DEPOSITO");
+//          transaction.setTransactionAmount(d.getAmount());
+//          transaction.setCommission(commissionFin);
+//          transaction.setTransactionDate(LocalDateTime.now());
+          
+//          return transactionService.create(transaction).block();
+          
           return transactionService
               .create(Transaction
                   .builder()
@@ -156,7 +177,7 @@ public class TransactionConsumer {
           
         })
         .flatMap(a -> {
-                  
+          
           producer.sendCreatedTransactionTopic(a);
           return Mono.just(a);
           
